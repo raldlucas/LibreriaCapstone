@@ -1,0 +1,6 @@
+*.orig
+*.pyc
+*.idea
+*.swp
+*.log
+.ipynb_checkpoint
