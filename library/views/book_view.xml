@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="book_form_view">
+            <field name="name">book.form</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <h1>Información del libro</h1>
+                    </header>
+                    <sheet>
+                        <group name="author_info" string="Información del autor">
+                            <field name="author"/>
+                        </group>
+                        <group name="publisher_info" string="Información del editor">
+                            <field name="publisher"/>
+                            <field name="publish_date"/>
+                        </group>
+                        <group name="book_info" string="Información del libro">
+                            <field name="ISBN"/>
+                            <field name="format"/>
+                            <field name="genre"/>
+                            <field name="edition"/>
+                            <field name="price"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                    <notebook>
+                        <page string="Resumen">
+                            <field name="summary"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="book_list_view">
+            <field name="name">book.list</field>
+            <field name="model">library.book</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="genre"/>
+                    <field name="author"/>
+                    <field name="publisher"/>
+                    <field name="publish_date"/>
+                    <field name="format"/>
+                    <field name="ISBN"/>
+                    <field name="edition"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="book_search_view">
+            <field name="name">book.search</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="format"/>
+                    <field name="author"/>
+                    <field name="ISBN"/>
+                    <group expand="1" string="Año de publicación">
+                        <filter name="year" string="Año" context="{'group_by': 'publish_date:year'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
